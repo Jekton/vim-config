@@ -16,7 +16,6 @@ set ruler
 set number
 set lines=28 columns=90
 set hlsearch
-winpos 140 60
 
 set tabstop=8
 set shiftwidth=8
