@@ -2,9 +2,9 @@ let $PATH = '/usr/bin:'.$PATH
 
 if has("gui_running")
   if has("gui_gtk2")
-    set guifont=Inconsolata\ 14
+    set guifont=Source\ Code\ Pro\ 14
   elseif has("gui_macvim")
-    set guifont=Consolas:h16
+    set guifont=Source\ Code\ Pro:h16
     "set guifont=Monaco:h14
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
