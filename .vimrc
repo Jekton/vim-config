@@ -4,7 +4,7 @@ if has("gui_running")
   if has("gui_gtk2")
     set guifont=Source\ Code\ Pro\ 14
   elseif has("gui_macvim")
-    set guifont=Source\ Code\ Pro:h16
+    set guifont=Source\ Code\ Pro:h15
     "set guifont=Monaco:h14
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
@@ -50,6 +50,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -67,7 +68,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 "
 
-let g:ycm_extra_conf_globlist = ['~/dev/*']
+let g:ycm_extra_conf_globlist = ['~/dev/*', '/Volumes/android']
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_complete_in_comments_and_strings=1
 "let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
@@ -124,3 +125,5 @@ set t_Co=256
 let g:Powerline_symbols = 'fancy'
 
 imap <D-space> <Esc>
+
+let g:linuxsty_patterns = [ "/linux/", "/kernel/",]
