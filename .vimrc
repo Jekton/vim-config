@@ -48,6 +48,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'davidhalter/jedi-vim'
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
@@ -74,7 +75,7 @@ let g:ycm_complete_in_comments_and_strings=1
 "let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
 "let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
 let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_python_binary_path = 'python'
+let g:ycm_python_binary_path = 'python3'
 
 
 "  ConqueTerm
@@ -126,4 +127,4 @@ let g:Powerline_symbols = 'fancy'
 
 imap <D-space> <Esc>
 
-let g:linuxsty_patterns = [ "/linux/", "/kernel/",]
+let g:linuxsty_patterns = [ "/linux/", "/kernel/", "/c/", "/os/"]
