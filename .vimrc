@@ -1,7 +1,7 @@
 let $PATH = '/usr/bin:'.$PATH
 
 if has("gui_running")
-  if has("gui_gtk2")
+  if has("gui_gtk")
     set guifont=Source\ Code\ Pro\ 14
   elseif has("gui_macvim")
     set guifont=Source\ Code\ Pro:h15
@@ -14,7 +14,7 @@ endif
 set laststatus=2
 set ruler
 set number
-set lines=28 columns=90
+set lines=28 columns=120
 set hlsearch
 
 set tabstop=8
@@ -50,6 +50,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
@@ -77,6 +79,20 @@ let g:ycm_complete_in_comments_and_strings=1
 "let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_python_binary_path = 'python3'
+
+autocmd vimenter * NERDTree
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 
 
 "  ConqueTerm
