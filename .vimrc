@@ -1,8 +1,8 @@
-let $PATH = '/usr/bin:'.$PATH
+"let $PATH = '/usr/bin:'.$PATH
 
 if has("gui_running")
-  if has("gui_gtk")
-    set guifont=Source\ Code\ Pro\ 14
+  if has("gui_gtk3")
+    set guifont=Source\ Code\ Pro\ 12
   elseif has("gui_macvim")
     set guifont=Source\ Code\ Pro:h15
     "set guifont=Monaco:h14
@@ -14,12 +14,11 @@ endif
 set laststatus=2
 set ruler
 set number
-set lines=28 columns=120
 set hlsearch
 
-set tabstop=8
-set shiftwidth=8
-set softtabstop=8
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 
 set tags=tags;
@@ -51,7 +50,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'vim-syntastic/syntastic'
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
@@ -80,7 +79,20 @@ let g:ycm_complete_in_comments_and_strings=1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_python_binary_path = 'python3'
 
-autocmd vimenter * NERDTree
+"autocmd BufWritePost *.py call Flake8()
+"let g:flake8_show_in_file=1
+
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" autocmd vimenter * NERDTree
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
