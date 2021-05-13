@@ -4,7 +4,7 @@ if has("gui_running")
   if has("gui_gtk3")
     set guifont=Source\ Code\ Pro\ 12
   elseif has("gui_macvim")
-    set guifont=Source\ Code\ Pro:h15
+    set guifont=Source\ Code\ Pro:h16
     "set guifont=Monaco:h14
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
@@ -33,78 +33,19 @@ filetype plugin indent on
 :set list
 
 :set encoding=utf-8
-:set fileencoding=utf-8
+:set fileencodings=utf-8
+:set termencoding=utf-8
 :set nowrap
 
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-syntastic/syntastic'
-
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"
 
-let g:ycm_extra_conf_globlist = ['~/dev/*', '/Volumes/android']
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_complete_in_comments_and_strings=1
-"let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-"let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_python_binary_path = 'python3'
-
-"autocmd BufWritePost *.py call Flake8()
-"let g:flake8_show_in_file=1
-
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" autocmd vimenter * NERDTree
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
 
 
 "  ConqueTerm
@@ -136,7 +77,6 @@ set cursorline              "为光标所在行加下划线
 set autoread                "文件在Vim之外修改过，自动重新读入
 
 set ignorecase              "检索时忽略大小写
-set fileencodings=uft-8,gbk "使用utf-8或gbk打开文件
 set hls                     "检索时高亮显示匹配项
 set foldmethod=syntax       "代码折叠
 "}}
@@ -156,4 +96,3 @@ let g:Powerline_symbols = 'fancy'
 
 imap <D-space> <Esc>
 
-let g:linuxsty_patterns = [ "/linux/", "/kernel/", "/c/", "/os/"]
